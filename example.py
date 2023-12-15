@@ -3,9 +3,9 @@ import time
 from ws2812 import WS2812, timing_calculator
 
 if __name__ == "__main__":
-    timing_calculator(4_000_000)  # try it yourself
+    timing_calculator(2_300_000, allow_error=300)  # try it yourself
 
-    led = WS2812(12, "/dev/spidev0.0", 4_000_000)
+    led = WS2812(12, "/dev/spidev0.0", 8_000_000)
     hue = 0
     while True:
         hue += 0.5

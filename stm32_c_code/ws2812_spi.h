@@ -40,13 +40,12 @@ extern void Strip_DeInit(LEDStrip_t* strip);
  * @param  RGBcolor    RGB颜色
  */
 extern void Strip_Set(LEDStrip_t* strip, uint16_t index, uint32_t RGBcolor);
-extern void Strip_Set_RGB(LEDStrip_t* strip, uint16_t index, uint32_t RGBcolor);
 
 /**
  * @brief 清空灯带
  * @param  strip       灯带句柄
  */
-extern void Strip_Clear(LEDStrip_t *strip);
+extern void Strip_Clear(LEDStrip_t* strip);
 
 /**
  * @brief 设置灯带某个区间的颜色
@@ -56,7 +55,7 @@ extern void Strip_Clear(LEDStrip_t *strip);
  * @param  RGBcolor    RGB颜色
  */
 extern void Strip_Set_Range(LEDStrip_t* strip, uint16_t start, uint16_t end,
-                               uint32_t RGBcolor);
+                            uint32_t RGBcolor);
 
 /**
  * @brief 检查灯带是否发送忙
@@ -71,14 +70,6 @@ extern uint8_t Strip_IsBusy(LEDStrip_t* strip);
  * @retval HAL_StatusTypeDef
  */
 extern HAL_StatusTypeDef Strip_Send(LEDStrip_t* strip);
-
-/**
- * @brief 发送灯带数据
- * @param  strip      灯带句柄
- * @param  num        发送的LED数量
- * @retval HAL_StatusTypeDef
- */
-extern HAL_StatusTypeDef Strip_SendPart(LEDStrip_t *strip, uint16_t num);
 
 /**
  * @brief 发送灯带数据/阻塞

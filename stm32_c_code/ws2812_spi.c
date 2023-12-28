@@ -122,19 +122,6 @@ HAL_StatusTypeDef Strip_Send(LEDStrip_t *strip) {
   return HAL_OK;
 }
 
-HAL_StatusTypeDef Strip_SendPart(LEDStrip_t *strip, uint16_t num) {
-  if (!strip->length || !strip->buffer) return HAL_ERROR;
-  if (num > strip->length) num = strip->length;
-  if (HAL_SPI_GetState(strip->hspi) != HAL_SPI_STATE_READY ||
-      HAL_DMA_GetState(strip->hspi->hdmatx) != HAL_DMA_STATE_READY) {
-    LOG_E("LED SPI BUSY");
-    return HAL_BUSY;
-  }
-  HAL_SPI_Transmit_DMA(strip->hspi, strip->buffer,
-                       BUF_LEN(num) + HEAD_ZERO + TAIL_ZERO);
-  return HAL_OK;
-}
-
 // R,G,B range 0-255, H range 0-360, S,V range 0-255
 uint32_t HSV_To_RGB(float h, uint8_t s, uint8_t v) {
   uint8_t r, g, b;

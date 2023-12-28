@@ -271,7 +271,7 @@ class WS2812:
     @staticmethod
     def hsv_to_rgb(
         h: float, s: float, v: float, merge=True
-    ) -> Union[int, tuple[int, int, int]]:
+    ) -> Union[int, Tuple[int, int, int]]:
         """
         Convert HSV to RGB
 
